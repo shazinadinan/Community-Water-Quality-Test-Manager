@@ -1,0 +1,7 @@
+sample_id,source_id,collection_date,ph,turbidity_ntu,hardness_mgl,status,data_origin
+1001,1,2026-09-15,7,1,100,TESTED,manual
+1002,2,2026-09-17,6,8,350,NEEDS ATTENTION,manual
+1004,1,2026-09-19,8,3.6,112,TESTED,simulated
+1005,1,2026-09-20,12,4.9,53,NEEDS ATTENTION,simulated
+1006,1,2026-09-21,7.1,0.6,348,NEEDS ATTENTION,simulated
+1003,2,2026-09-18,8,5.5,160,NEEDS ATTENTION,simulated

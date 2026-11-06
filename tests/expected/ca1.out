@@ -1,0 +1,216 @@
+Educational simulation. Example limits only - NOT official safety certification.
+
+========== Community Water Quality Test Manager (CA1) ==========
+ 1 Register water source    6 View one sample (findings)
+ 2 List sources             7 Summary report
+ 3 New sample (manual)      8 Edit example limits
+ 4 New sample (simulated)   9 Location tree (recursion)
+ 5 View all samples        10 Exit
+Choose: 
+=== Register water source ===
+Source ID (1-999): Source name: Type: 1 Well, 2 Borewell, 3 Lake, 4 River, 5 Tank
+Choose type: Locations:
+   - [0] Community
+      - [1] North Ward
+         - [3] Lake Area
+      - [2] South Ward
+         - [4] Market Block
+         - [5] Old Town
+Location number: Source registered.
+
+========== Community Water Quality Test Manager (CA1) ==========
+ 1 Register water source    6 View one sample (findings)
+ 2 List sources             7 Summary report
+ 3 New sample (manual)      8 Edit example limits
+ 4 New sample (simulated)   9 Location tree (recursion)
+ 5 View all samples        10 Exit
+Choose: 
+=== Register water source ===
+Source ID (1-999): Source name: Type: 1 Well, 2 Borewell, 3 Lake, 4 River, 5 Tank
+Choose type: Locations:
+   - [0] Community
+      - [1] North Ward
+         - [3] Lake Area
+      - [2] South Ward
+         - [4] Market Block
+         - [5] Old Town
+Location number: Source registered.
+
+========== Community Water Quality Test Manager (CA1) ==========
+ 1 Register water source    6 View one sample (findings)
+ 2 List sources             7 Summary report
+ 3 New sample (manual)      8 Edit example limits
+ 4 New sample (simulated)   9 Location tree (recursion)
+ 5 View all samples        10 Exit
+Choose: 
+=== Registered sources ===
+   1 | Village Well   |     Well | Community > North Ward > Lake Area
+   2 | Hand Pump Borewell | Borewell | Community > South Ward > Old Town
+
+========== Community Water Quality Test Manager (CA1) ==========
+ 1 Register water source    6 View one sample (findings)
+ 2 List sources             7 Summary report
+ 3 New sample (manual)      8 Edit example limits
+ 4 New sample (simulated)   9 Location tree (recursion)
+ 5 View all samples        10 Exit
+Choose: 
+=== Register water source ===
+Source ID (1-999):   Duplicate source ID. Not saved.
+
+========== Community Water Quality Test Manager (CA1) ==========
+ 1 Register water source    6 View one sample (findings)
+ 2 List sources             7 Summary report
+ 3 New sample (manual)      8 Edit example limits
+ 4 New sample (simulated)   9 Location tree (recursion)
+ 5 View all samples        10 Exit
+Choose: 
+=== New sample (manual readings) ===
+Sample ID (1-99999): Source ID: Collection date (YYYY-MM-DD): pH (0-14): Turbidity NTU (0-1000): Hardness mg/L (0-2000): Sample 1001 collected 2026-09-15  [MANUAL DATA]
+  pH        7.20  (example range 6.50-8.50) -> within example limit
+  Turbidity 2.10  (example max 5.00 NTU) -> within example limit
+  Hardness  180.00  (example max 300.00 mg/L) -> within example limit
+  NOTE: these 3 parameters cannot show microbiological safety.
+Combined example score: 100.0 / 100
+
+========== Community Water Quality Test Manager (CA1) ==========
+ 1 Register water source    6 View one sample (findings)
+ 2 List sources             7 Summary report
+ 3 New sample (manual)      8 Edit example limits
+ 4 New sample (simulated)   9 Location tree (recursion)
+ 5 View all samples        10 Exit
+Choose: 
+=== New sample (manual readings) ===
+Sample ID (1-99999):   Duplicate sample ID. Not saved.
+
+========== Community Water Quality Test Manager (CA1) ==========
+ 1 Register water source    6 View one sample (findings)
+ 2 List sources             7 Summary report
+ 3 New sample (manual)      8 Edit example limits
+ 4 New sample (simulated)   9 Location tree (recursion)
+ 5 View all samples        10 Exit
+Choose: 
+=== New sample (manual readings) ===
+Sample ID (1-99999): Source ID: Collection date (YYYY-MM-DD):   Invalid date. Use YYYY-MM-DD (e.g. 2026-09-15).
+Collection date (YYYY-MM-DD): pH (0-14):   Invalid. Enter a number from 0.0 to 14.0.
+pH (0-14): Turbidity NTU (0-1000): Hardness mg/L (0-2000): Sample 1002 collected 2026-09-16  [MANUAL DATA]
+  pH        5.00  (example range 6.50-8.50) -> REQUIRES ATTENTION
+  Turbidity 6.50  (example max 5.00 NTU) -> REQUIRES ATTENTION
+  Hardness  350.00  (example max 300.00 mg/L) -> REQUIRES ATTENTION
+  NOTE: these 3 parameters cannot show microbiological safety.
+Combined example score: 63.5 / 100
+
+========== Community Water Quality Test Manager (CA1) ==========
+ 1 Register water source    6 View one sample (findings)
+ 2 List sources             7 Summary report
+ 3 New sample (manual)      8 Edit example limits
+ 4 New sample (simulated)   9 Location tree (recursion)
+ 5 View all samples        10 Exit
+Choose: 
+=== New sample (manual readings) ===
+Sample ID (1-99999): Source ID:   Source not found.
+
+========== Community Water Quality Test Manager (CA1) ==========
+ 1 Register water source    6 View one sample (findings)
+ 2 List sources             7 Summary report
+ 3 New sample (manual)      8 Edit example limits
+ 4 New sample (simulated)   9 Location tree (recursion)
+ 5 View all samples        10 Exit
+Choose: 
+=== New sample (SIMULATED readings) ===
+Sample ID (1-99999): Source ID: Collection date (YYYY-MM-DD): Scenario: 1 Typical, 2 After heavy rain, 3 Hard-water area, 4 Fully random
+Choose scenario:   (values generated with rand(); they are NOT measurements)
+Sample 1003 collected 2026-09-17  [SIMULATED DATA]
+  pH        7.10  (example range 6.50-8.50) -> within example limit
+  Turbidity 7.50  (example max 5.00 NTU) -> REQUIRES ATTENTION
+  Hardness  118.00  (example max 300.00 mg/L) -> within example limit
+  NOTE: these 3 parameters cannot show microbiological safety.
+Combined example score: 85.0 / 100
+
+========== Community Water Quality Test Manager (CA1) ==========
+ 1 Register water source    6 View one sample (findings)
+ 2 List sources             7 Summary report
+ 3 New sample (manual)      8 Edit example limits
+ 4 New sample (simulated)   9 Location tree (recursion)
+ 5 View all samples        10 Exit
+Choose: 
+=== All samples ===
+  1001 | src   1 | 2026-09-15 | pH  7.2 | Turb   2.1 | Hard    180 | TESTED
+  1002 | src   2 | 2026-09-16 | pH  5.0 | Turb   6.5 | Hard    350 | NEEDS ATTENTION
+  1003 | src   1 | 2026-09-17 | pH  7.1 | Turb   7.5 | Hard    118 | NEEDS ATTENTION (simulated)
+
+========== Community Water Quality Test Manager (CA1) ==========
+ 1 Register water source    6 View one sample (findings)
+ 2 List sources             7 Summary report
+ 3 New sample (manual)      8 Edit example limits
+ 4 New sample (simulated)   9 Location tree (recursion)
+ 5 View all samples        10 Exit
+Choose: Sample ID: Sample 1001 collected 2026-09-15  [MANUAL DATA]
+  pH        7.20  (example range 6.50-8.50) -> within example limit
+  Turbidity 2.10  (example max 5.00 NTU) -> within example limit
+  Hardness  180.00  (example max 300.00 mg/L) -> within example limit
+  NOTE: these 3 parameters cannot show microbiological safety.
+audit: id=1001 source=1 status=TESTED origin=manual
+Combined example score: 100.0 / 100
+
+========== Community Water Quality Test Manager (CA1) ==========
+ 1 Register water source    6 View one sample (findings)
+ 2 List sources             7 Summary report
+ 3 New sample (manual)      8 Edit example limits
+ 4 New sample (simulated)   9 Location tree (recursion)
+ 5 View all samples        10 Exit
+Choose: Sample ID:   Sample not found.
+
+========== Community Water Quality Test Manager (CA1) ==========
+ 1 Register water source    6 View one sample (findings)
+ 2 List sources             7 Summary report
+ 3 New sample (manual)      8 Edit example limits
+ 4 New sample (simulated)   9 Location tree (recursion)
+ 5 View all samples        10 Exit
+Choose: 
+=== Summary report ===
+Samples created so far (static counter): 3
+Readings requiring attention: 2 of 3
+
+Averages by source type:
+Type          N      pH      Turb      Hard
+Well          2    7.15      4.80    149.00
+Borewell      1    5.00      6.50    350.00
+
+Reminder: educational simulation, not a drinking-water certificate.
+
+========== Community Water Quality Test Manager (CA1) ==========
+ 1 Register water source    6 View one sample (findings)
+ 2 List sources             7 Summary report
+ 3 New sample (manual)      8 Edit example limits
+ 4 New sample (simulated)   9 Location tree (recursion)
+ 5 View all samples        10 Exit
+Choose: 
+=== Edit example reference limits ===
+pH minimum (0-14): pH maximum (0-14): Turbidity max NTU (0-1000): Hardness max mg/L (0-2000): Limits updated; existing samples re-assessed.
+
+========== Community Water Quality Test Manager (CA1) ==========
+ 1 Register water source    6 View one sample (findings)
+ 2 List sources             7 Summary report
+ 3 New sample (manual)      8 Edit example limits
+ 4 New sample (simulated)   9 Location tree (recursion)
+ 5 View all samples        10 Exit
+Choose: 
+========================================
+ Location hierarchy
+========================================
+- [0] Community
+   - [1] North Ward
+      - [3] Lake Area
+   - [2] South Ward
+      - [4] Market Block
+      - [5] Old Town
+
+========== Community Water Quality Test Manager (CA1) ==========
+ 1 Register water source    6 View one sample (findings)
+ 2 List sources             7 Summary report
+ 3 New sample (manual)      8 Edit example limits
+ 4 New sample (simulated)   9 Location tree (recursion)
+ 5 View all samples        10 Exit
+Choose: 
+Thank you for using the system. Goodbye!
+rc=0
