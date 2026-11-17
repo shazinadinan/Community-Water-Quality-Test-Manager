@@ -1,0 +1,101 @@
+Loaded 1 source(s) and 2 sample(s) from 'tests/tmp/ca2'.
+Educational simulation. Example limits only - NOT official safety certification.
+
+========== Community Water Quality Test Manager (CA2) ==========
+ 1 Register water source      10 Save all samples
+ 2 List sources               11 Search in file (seekg)
+ 3 New sample (manual)        12 Update sample (seekp)
+ 4 New sample (simulated)     13 Export text report
+ 5 View all samples           14 Exit
+ 6 View one sample (findings)
+ 7 Summary report
+ 8 Edit example limits
+ 9 Location tree (recursion)
+Choose: 
+=== Registered sources ===
+   1 | Village Well   |     Well | Community > North Ward > Lake Area
+
+========== Community Water Quality Test Manager (CA2) ==========
+ 1 Register water source      10 Save all samples
+ 2 List sources               11 Search in file (seekg)
+ 3 New sample (manual)        12 Update sample (seekp)
+ 4 New sample (simulated)     13 Export text report
+ 5 View all samples           14 Exit
+ 6 View one sample (findings)
+ 7 Summary report
+ 8 Edit example limits
+ 9 Location tree (recursion)
+Choose: 
+=== All samples ===
+  1001 | src   1 | 2026-09-15 | pH  6.0 | Turb   8.0 | Hard    350 | NEEDS ATTENTION
+  1002 | src   1 | 2026-09-16 | pH  8.0 | Turb   5.5 | Hard    160 | NEEDS ATTENTION (simulated)
+
+========== Community Water Quality Test Manager (CA2) ==========
+ 1 Register water source      10 Save all samples
+ 2 List sources               11 Search in file (seekg)
+ 3 New sample (manual)        12 Update sample (seekp)
+ 4 New sample (simulated)     13 Export text report
+ 5 View all samples           14 Exit
+ 6 View one sample (findings)
+ 7 Summary report
+ 8 Edit example limits
+ 9 Location tree (recursion)
+Choose: 
+=== Search in file (seekg) ===
+Sample ID to find in samples.dat: Found at record #0 (byte offset 0):
+  1001 | src   1 | 2026-09-15 | pH  6.0 | Turb   8.0 | Hard    350 | NEEDS ATTENTION
+
+========== Community Water Quality Test Manager (CA2) ==========
+ 1 Register water source      10 Save all samples
+ 2 List sources               11 Search in file (seekg)
+ 3 New sample (manual)        12 Update sample (seekp)
+ 4 New sample (simulated)     13 Export text report
+ 5 View all samples           14 Exit
+ 6 View one sample (findings)
+ 7 Summary report
+ 8 Edit example limits
+ 9 Location tree (recursion)
+Choose: 
+=== Update sample readings (seekp) ===
+Sample ID to update: Sample 1002 collected 2026-09-16  [SIMULATED DATA]
+  pH        8.00  (example range 6.50-8.50) -> within example limit
+  Turbidity 5.50  (example max 5.00 NTU) -> REQUIRES ATTENTION
+  Hardness  160.00  (example max 300.00 mg/L) -> within example limit
+  NOTE: these 3 parameters cannot show microbiological safety.
+Replace the readings? (y/n): Update cancelled.
+
+========== Community Water Quality Test Manager (CA2) ==========
+ 1 Register water source      10 Save all samples
+ 2 List sources               11 Search in file (seekg)
+ 3 New sample (manual)        12 Update sample (seekp)
+ 4 New sample (simulated)     13 Export text report
+ 5 View all samples           14 Exit
+ 6 View one sample (findings)
+ 7 Summary report
+ 8 Edit example limits
+ 9 Location tree (recursion)
+Choose: 
+=== Summary report ===
+Samples created so far (static counter): 2
+Sample objects alive in memory (static counter): 50
+Readings requiring attention: 2 of 2
+
+Averages by source type:
+Type          N      pH      Turb      Hard
+Well          2    7.00      6.75    255.00
+
+Reminder: educational simulation, not a drinking-water certificate.
+
+========== Community Water Quality Test Manager (CA2) ==========
+ 1 Register water source      10 Save all samples
+ 2 List sources               11 Search in file (seekg)
+ 3 New sample (manual)        12 Update sample (seekp)
+ 4 New sample (simulated)     13 Export text report
+ 5 View all samples           14 Exit
+ 6 View one sample (findings)
+ 7 Summary report
+ 8 Edit example limits
+ 9 Location tree (recursion)
+Choose: 
+Thank you for using the system. Goodbye!
+rc=0

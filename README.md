@@ -9,79 +9,90 @@
 
 Community water sources (wells, borewells, lakes, rivers, tanks) are usually tested and recorded on paper. This leads to repeated sample numbers, inconsistent dates, mistyped readings (e.g. pH 78 instead of 7.8) and no quick way to compare readings with reference limits.
 
-This project is a menu-driven C++ console application that registers water sources and samples, validates every input, compares pH, turbidity and hardness with configurable example limits, flags readings that need attention and prints a summary report.
+This project is a menu-driven C++ console application that registers water sources and samples, validates every input, compares pH, turbidity and hardness with configurable example limits, flags readings that need attention and prints a summary report. From CA-2 the records are saved in files, so they survive a restart.
 
 > **Disclaimer:** This is an educational simulation. The limits are example values and are **not** official standards. The program never issues a drinking-water certificate.
 
-## Current Status — CA-1 (Increment 1)
+## Progress
 
-Implemented in `src/ca1/main.cpp`:
+| Increment | Folder | Units | Status |
+|---|---|---|---|
+| CA-1 | `src/ca1` | I–II | done |
+| CA-2 | `src/ca2` | III | **done (current)** |
+| CA-3 | `src/ca3` | IV–V | planned |
+| CA-4 | `src/ca4` | VI | planned |
 
-- Register water sources (ID 1–999, name, type, location from a location tree; max 10)
-- Register samples (unique ID, valid date, pH / turbidity / hardness; max 50)
-- Manual entry or `rand()`-simulated readings (Typical, After heavy rain, Hard-water area, Fully random) — simulated data is always labelled
-- Parameter-wise findings, status (TESTED / NEEDS ATTENTION) and a combined example score (0–100)
-- View all samples, view one sample, summary report (counts, flagged readings, averages by source type)
-- Edit example limits (all stored samples are re-assessed)
-- Full input validation (menu, numbers, dates, duplicate IDs, end-of-input safe)
+## Current Status — CA-2 (Increment 2): constructors and file persistence
 
-### C++ concepts covered (Units I and II)
-Classes and objects, enumerations, structures, static members, inline / non-inline functions, friend function and friend class, function overloading, references, pointers, `this` pointer, call by value / address / reference, recursion, arrays, multidimensional arrays, arrays of objects, strings, `switch-case`, `rand()` / `srand()`.
+Implemented in `src/ca2/main.cpp` (everything from CA-1 is kept):
 
-Later increments (CA-2 to CA-4) are planned to add constructors/destructors, file handling, inheritance, polymorphism, STL and exceptions.
+- **Constructors and destructor** for `WaterSample`: default, parameterized with default arguments (and initializer list), copy, constructor from a file record, and a destructor (static counter `liveObjects`)
+- **Binary files with fixed-size records:** `SampleRecord` (56 bytes) in `samples.dat` and `SourceRecord` (44 bytes) in `sources.dat`
+- **Data survives a restart:** all records are loaded when the program starts; every new source and sample is appended to its file at once
+- **Random access:** search a sample directly in the file with `seekg` (menu 11) and update it in place with `seekp` (menu 12)
+- **Text files:** `log.txt` (appended with `ios::app`) and `report.txt` (menu 13); *Save all* (menu 10) rewrites `samples.dat` with `ios::trunc`
+- Summary report also shows the number of live `WaterSample` objects
+
+### C++ concepts covered
+CA-1 (Units I and II): classes and objects, enumerations, structures, static members, inline / non-inline functions, friend function and friend class, function overloading, references, pointers, `this`, call by value / address / reference, recursion, arrays, multidimensional arrays, arrays of objects, strings, `switch-case`, `rand()`.
+CA-2 (Unit III): default / parameterized / copy constructors, constructors with default arguments, initializer lists, destructor, `ifstream` / `ofstream` / `fstream`, file modes (`ios::app`, `ios::trunc`, `ios::in | ios::out`, `ios::binary`), `read` / `write` / `seekg` / `seekp` / `tellg` / `flush`, sequential and random access, binary and text files, structures and classes with files.
+
+Later increments will add inheritance, polymorphism, the STL, templates and exceptions.
 
 ## Project Structure
 
 ```
 CPP_PROJECT/
 ├── README.md
+├── .gitignore
 ├── src/
-│   └── ca1/main.cpp            # CA-1 source code
+│   ├── ca1/main.cpp            # CA-1 source (in-memory)
+│   └── ca2/main.cpp            # CA-2 source (constructors + files)
 ├── tests/
-│   ├── inputs/ca1.txt          # scripted input for a test run
-│   └── expected/ca1.out        # expected output of that run
-├── data/
-│   ├── limits.cfg              # sample limits file (phMin, phMax, turbidityMax, hardnessMax)
-│   ├── meta.txt                # metadata
-│   ├── samples.csv             # sample records (CSV)
-│   ├── samples.dat             # sample records (binary)
-│   └── sources.dat             # source records
-└── docs/diagrams/
-    ├── uml_ca1.png             # UML class diagram
-    └── flow_ca1.png            # program flow chart
+│   ├── run_tests.sh            # builds CA-1 and CA-2 and runs all checks
+│   ├── inputs/                 # scripted inputs (ca1.txt, ca2_s1.txt, ca2_s2.txt)
+│   └── expected/               # saved outputs of those runs
+├── data/                       # sample data files (binary files are for this program only)
+└── docs/
+    ├── diagrams/               # uml_ca1, flow_ca1, uml_ca2, flow_ca2, flow_persistence, file_layout_ca2 (+ source/ .dot files)
+    └── docx/                   # CA-1 and CA-2 reports (docx + pdf)
 ```
-
-> The files in `data/` are sample data for later increments; the CA-1 program keeps all data in memory and does not read them.
 
 ## Requirements
 
-- A C++11-or-later compiler (written and tested with g++ 13.3, C++17)
+- A C++11-or-later compiler (written and tested with g++ 13.3, C++17); `<filesystem>` needs g++ 9 or newer
 - Runs on Windows, Linux and macOS (console application)
 
-## Build
+## Build and Run
 
 ```bash
-g++ -std=c++17 -Wall -Wextra -pedantic -o ca1 src/ca1/main.cpp
+g++ -std=c++17 -Wall -Wextra -pedantic -o ca2 src/ca2/main.cpp
+./ca2 --data data            # keeps the files in the folder "data"
+./ca2 --data data --seed 1   # repeatable rand() values
 ```
 
-(Dev-C++, Code::Blocks or VS Code work equally well.)
+Options: `--data FOLDER` (default `data`, created if missing) and `--seed N`. Run CA-1 the same way with `src/ca1/main.cpp` (it keeps nothing on disk).
 
-## Run
-
-```bash
-./ca1                # normal run (random seed from the clock)
-./ca1 --seed 1       # repeatable run, same rand() values every time
-```
-
-### Menu
+### CA-2 menu
 
 | # | Option | # | Option |
 |---|--------|---|--------|
-| 1 | Register water source | 6 | View one sample (findings) |
-| 2 | List sources | 7 | Summary report |
-| 3 | New sample (manual) | 8 | Edit example limits |
-| 4 | New sample (simulated) | 9 | Location tree (recursion) |
-| 5 | View all samples | 10 | Exit |
+| 1 | Register water source | 8 | Edit example limits |
+| 2 | List sources | 9 | Location tree (recursion) |
+| 3 | New sample (manual) | 10 | Save all samples |
+| 4 | New sample (simulated) | 11 | Search in file (seekg) |
+| 5 | View all samples | 12 | Update sample (seekp) |
+| 6 | View one sample (findings) | 13 | Export text report |
+| 7 | Summary report | 14 | Exit |
+
+### Files written by CA-2
+
+| File | Type | Content |
+|---|---|---|
+| `samples.dat` | binary | one 56-byte record per sample |
+| `sources.dat` | binary | one 44-byte record per source |
+| `log.txt` | text | one line per event (append mode) |
+| `report.txt` | text | sample ID, source ID, status |
 
 ### Default example limits
 
@@ -93,15 +104,13 @@ g++ -std=c++17 -Wall -Wextra -pedantic -o ca1 src/ca1/main.cpp
 
 ## Testing
 
-`tests/inputs/ca1.txt` is a scripted input and `tests/expected/ca1.out` is the output recorded for it (the last line `rc=0` is the exit code).
-
 ```bash
-./ca1 --seed 1 < tests/inputs/ca1.txt > actual.out
-diff actual.out tests/expected/ca1.out
+bash tests/run_tests.sh            # builds ca1 and ca2, runs 30 checks, compares with tests/expected/
+bash tests/run_tests.sh --update   # regenerate the expected files (only after reviewing the output)
 ```
 
-Everything matches except the values of **simulated** samples, because `rand()` gives different numbers on different compilers/platforms, and the `rc=0` line. Manual samples, findings and validation messages are identical.
+The CA-2 tests run the program twice on the same data folder, so they also prove that data survives a restart. The expected files were recorded with `--seed 3` (CA-1) and `--seed 5` (CA-2) on g++/Linux; `rand()` gives different numbers on other systems, so simulated values may differ there (manual samples, findings and messages are identical).
 
 ## Author
 
-Shazin Adinan K P — CA-1, CAP455.
+Shazin Adinan K P — CA-1 and CA-2, CAP455.

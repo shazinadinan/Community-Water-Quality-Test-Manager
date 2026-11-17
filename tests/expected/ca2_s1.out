@@ -1,0 +1,150 @@
+Loaded 0 source(s) and 0 sample(s) from 'tests/tmp/ca2'.
+Educational simulation. Example limits only - NOT official safety certification.
+
+========== Community Water Quality Test Manager (CA2) ==========
+ 1 Register water source      10 Save all samples
+ 2 List sources               11 Search in file (seekg)
+ 3 New sample (manual)        12 Update sample (seekp)
+ 4 New sample (simulated)     13 Export text report
+ 5 View all samples           14 Exit
+ 6 View one sample (findings)
+ 7 Summary report
+ 8 Edit example limits
+ 9 Location tree (recursion)
+Choose: 
+=== Register water source ===
+Source ID (1-999): Source name: Type: 1 Well, 2 Borewell, 3 Lake, 4 River, 5 Tank
+Choose type: Locations:
+   - [0] Community
+      - [1] North Ward
+         - [3] Lake Area
+      - [2] South Ward
+         - [4] Market Block
+         - [5] Old Town
+Location number: Source registered and saved.
+
+========== Community Water Quality Test Manager (CA2) ==========
+ 1 Register water source      10 Save all samples
+ 2 List sources               11 Search in file (seekg)
+ 3 New sample (manual)        12 Update sample (seekp)
+ 4 New sample (simulated)     13 Export text report
+ 5 View all samples           14 Exit
+ 6 View one sample (findings)
+ 7 Summary report
+ 8 Edit example limits
+ 9 Location tree (recursion)
+Choose: 
+=== New sample (manual readings) ===
+Sample ID (1-99999): Source ID: Collection date (YYYY-MM-DD): pH (0-14): Turbidity NTU (0-1000): Hardness mg/L (0-2000): Sample 1001 collected 2026-09-15  [MANUAL DATA]
+  pH        7.20  (example range 6.50-8.50) -> within example limit
+  Turbidity 2.10  (example max 5.00 NTU) -> within example limit
+  Hardness  180.00  (example max 300.00 mg/L) -> within example limit
+  NOTE: these 3 parameters cannot show microbiological safety.
+Combined example score: 100.0 / 100
+
+========== Community Water Quality Test Manager (CA2) ==========
+ 1 Register water source      10 Save all samples
+ 2 List sources               11 Search in file (seekg)
+ 3 New sample (manual)        12 Update sample (seekp)
+ 4 New sample (simulated)     13 Export text report
+ 5 View all samples           14 Exit
+ 6 View one sample (findings)
+ 7 Summary report
+ 8 Edit example limits
+ 9 Location tree (recursion)
+Choose: 
+=== New sample (SIMULATED readings) ===
+Sample ID (1-99999): Source ID: Collection date (YYYY-MM-DD): Scenario: 1 Typical, 2 After heavy rain, 3 Hard-water area, 4 Fully random
+Choose scenario:   (values generated with rand(); they are NOT measurements)
+Sample 1002 collected 2026-09-16  [SIMULATED DATA]
+  pH        8.00  (example range 6.50-8.50) -> within example limit
+  Turbidity 5.50  (example max 5.00 NTU) -> REQUIRES ATTENTION
+  Hardness  160.00  (example max 300.00 mg/L) -> within example limit
+  NOTE: these 3 parameters cannot show microbiological safety.
+Combined example score: 97.0 / 100
+
+========== Community Water Quality Test Manager (CA2) ==========
+ 1 Register water source      10 Save all samples
+ 2 List sources               11 Search in file (seekg)
+ 3 New sample (manual)        12 Update sample (seekp)
+ 4 New sample (simulated)     13 Export text report
+ 5 View all samples           14 Exit
+ 6 View one sample (findings)
+ 7 Summary report
+ 8 Edit example limits
+ 9 Location tree (recursion)
+Choose: 
+=== Update sample readings (seekp) ===
+Sample ID to update: Sample 1001 collected 2026-09-15  [MANUAL DATA]
+  pH        7.20  (example range 6.50-8.50) -> within example limit
+  Turbidity 2.10  (example max 5.00 NTU) -> within example limit
+  Hardness  180.00  (example max 300.00 mg/L) -> within example limit
+  NOTE: these 3 parameters cannot show microbiological safety.
+Replace the readings? (y/n): New pH (0-14): New turbidity (0-1000): New hardness (0-2000): Record #0 overwritten in file.
+
+========== Community Water Quality Test Manager (CA2) ==========
+ 1 Register water source      10 Save all samples
+ 2 List sources               11 Search in file (seekg)
+ 3 New sample (manual)        12 Update sample (seekp)
+ 4 New sample (simulated)     13 Export text report
+ 5 View all samples           14 Exit
+ 6 View one sample (findings)
+ 7 Summary report
+ 8 Edit example limits
+ 9 Location tree (recursion)
+Choose: 
+=== Search in file (seekg) ===
+Sample ID to find in samples.dat: Found at record #0 (byte offset 0):
+  1001 | src   1 | 2026-09-15 | pH  6.0 | Turb   8.0 | Hard    350 | NEEDS ATTENTION
+
+========== Community Water Quality Test Manager (CA2) ==========
+ 1 Register water source      10 Save all samples
+ 2 List sources               11 Search in file (seekg)
+ 3 New sample (manual)        12 Update sample (seekp)
+ 4 New sample (simulated)     13 Export text report
+ 5 View all samples           14 Exit
+ 6 View one sample (findings)
+ 7 Summary report
+ 8 Edit example limits
+ 9 Location tree (recursion)
+Choose: 
+=== Search in file (seekg) ===
+Sample ID to find in samples.dat:   Not found in file.
+
+========== Community Water Quality Test Manager (CA2) ==========
+ 1 Register water source      10 Save all samples
+ 2 List sources               11 Search in file (seekg)
+ 3 New sample (manual)        12 Update sample (seekp)
+ 4 New sample (simulated)     13 Export text report
+ 5 View all samples           14 Exit
+ 6 View one sample (findings)
+ 7 Summary report
+ 8 Edit example limits
+ 9 Location tree (recursion)
+Choose: Saved 2 sample(s) to tests/tmp/ca2/samples.dat.
+
+========== Community Water Quality Test Manager (CA2) ==========
+ 1 Register water source      10 Save all samples
+ 2 List sources               11 Search in file (seekg)
+ 3 New sample (manual)        12 Update sample (seekp)
+ 4 New sample (simulated)     13 Export text report
+ 5 View all samples           14 Exit
+ 6 View one sample (findings)
+ 7 Summary report
+ 8 Edit example limits
+ 9 Location tree (recursion)
+Choose: Text report written to tests/tmp/ca2/report.txt.
+
+========== Community Water Quality Test Manager (CA2) ==========
+ 1 Register water source      10 Save all samples
+ 2 List sources               11 Search in file (seekg)
+ 3 New sample (manual)        12 Update sample (seekp)
+ 4 New sample (simulated)     13 Export text report
+ 5 View all samples           14 Exit
+ 6 View one sample (findings)
+ 7 Summary report
+ 8 Edit example limits
+ 9 Location tree (recursion)
+Choose: 
+Thank you for using the system. Goodbye!
+rc=0
